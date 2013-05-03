@@ -1,0 +1,27 @@
+{
+  "name": "disposable-cars",
+  "version": "0.0.0",
+  "description": "car2go movement in portland over the last three days",
+  "main": "src/app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt": "~0.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattsacks/disposable-cars.git"
+  },
+  "keywords": [
+    "portland",
+    "car2go",
+    "d3",
+    "visualization"
+  ],
+  "author": "mattsacks",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "e5c1b259b650c50d46f25acc2727f4c5b3ebd10e"
+}
