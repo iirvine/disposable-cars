@@ -1,9 +1,9 @@
 // class for creating and animating the graph (and it's timeline)
 
 // constructor
-var Graph = function() {
+var Graph = function(cars) {
   // car data and each individual car2go found in portland by license
-  this.cars = window.cars;
+  this.cars = cars;
   this.ids = Object.keys(this.cars);
 
   // the number of days tracked
@@ -421,7 +421,7 @@ Graph.prototype.getCoords = function(location) {
 Graph.prototype.calculate = function(data, stats) {
   // default object of data to mapreduce on
   data = data || this.cars;
-  // default stats object with mappings and reductions keys 
+  // default stats object with mappings and reductions keys
   stats = stats || this.stats || this.defineStats();
 
   return mapreduce(data, stats.mappings, stats.reductions);

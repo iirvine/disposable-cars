@@ -46,7 +46,7 @@ App.prototype.startLoading = function() {
         if (!thiz.hasLoaded) rotate();
       });
   };
-  
+
   rotate();
   this.load();
 };
@@ -97,15 +97,15 @@ App.prototype.load = function() {
   document.body.classList.remove('hide');
 
   // load up the data
-  this.loadData(function() {
+  this.loadData(function(cars) {
     thiz.hasLoaded = true;
 
     // calculate the data
-    thiz.data = calculate();
+    thiz.data = calculate(cars);
 
     var start = function() {
       // create the graph and draw it out
-      thiz.graph = new Graph;
+      thiz.graph = new Graph(cars);
       thiz.graph.drawTimepath();
       thiz.graph.drawTimeline();
 
@@ -127,14 +127,8 @@ App.prototype.load = function() {
 };
 
 App.prototype.loadData = function(callback) {
-  if (window['cars'] != null) return;
-  // no-op
-  callback = callback || function() {};
-
-  var script = document.createElement('script');
-  script.src = 'http://my-s3-bukkit.s3.amazonaws.com/cars.js';
-  script.type = 'text/javascript';
-  script.onload = callback;
-  // load it up
-  document.body.appendChild(script);
+  d3.json("cars.json", function(err, json){
+    if (err) return console.warn(err);
+    callback(json);
+  })
 };

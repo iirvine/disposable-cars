@@ -81,6 +81,6 @@ var reductions = {
   }
 };
 
-var calculate = function() {
+var calculate = function(cars) {
   return mapreduce(cars, mappings, reductions);
 };
